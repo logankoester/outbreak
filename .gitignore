@@ -4,4 +4,6 @@ node_modules/
 *.swn
 test/tmp/pid/
 test/tmp/socket/
+examples/tmp/pid/
+examples/tmp/socket/
 npm-debug.log
