@@ -1,0 +1,30 @@
+{
+  "name": "outbreak",
+  "version": "0.0.0",
+  "description": "Service process management with dnode rpc",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "mocha",
+    "docs": "codo"
+  },
+  "author": "Logan Koester <logan@logankoester.com> (http://logankoester.com/)",
+  "dependencies": {
+    "coffee-script": "^1.7.1",
+    "coffeescript-mixins": "0.0.4",
+    "dnode": "^1.2.0",
+    "hashish": "0.0.4",
+    "is-running": "^1.0.5",
+    "retry": "^0.6.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/logankoester/outbreak/blob/master/LICENSE"
+    }
+  ],
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "chai-fs": "^0.1.0",
+    "mocha": "^1.20.1"
+  }
+}

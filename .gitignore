@@ -1,0 +1,7 @@
+node_modules/
+*.swp
+*.swo
+*.swn
+test/tmp/pid/
+test/tmp/socket/
+npm-debug.log
