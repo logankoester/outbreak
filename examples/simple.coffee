@@ -5,7 +5,7 @@ outbreak = require require('path').join(__dirname, '..')
 server = new outbreak.Server
   name: 'simple'
   remoteMethods:
-    getString: (cb) -> cb 'foo'
+    getString: (cb) -> cb 'OUTBREAK'
 
 setInterval ->
   n = Math.floor(Math.random() * 100)

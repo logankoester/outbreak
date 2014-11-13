@@ -34,8 +34,10 @@ module.exports = class Server
 
   initRPC: ->
     subs = {}
+    self = @
     @rpc = dnode (client, conn) ->
-      @getString = (cb) -> cb 'foo'
+      @call = (method, args) ->
+        self.remoteMethods[method](args)
       @subscribe = (emit) ->
         Server.subscriptions[conn.id] = emit
         conn.on 'end', => delete Server.subscriptions[conn.id]

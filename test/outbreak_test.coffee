@@ -28,8 +28,8 @@ describe 'A connected client named "simple"', ->
     it 'can call a remote method', (done) ->
       @client.connect (err, client) ->
         client.on 'remote', (remote) ->
-          remote.getString (str) ->
-            str.should.equal('foo')
+          remote.call 'getString', (str) ->
+            str.should.equal 'OUTBREAK'
             client.end()
             done()
 
@@ -52,8 +52,8 @@ describe 'A connected client named "simple"', ->
       it 'can call a remote method', (done) ->
         @client2.connect (err, client) ->
           client.on 'remote', (remote) ->
-            remote.getString (str) ->
-              str.should.equal('foo')
+            remote.call 'getString', (str) ->
+              str.should.equal('OUTBREAK')
               client.end()
               done()
 

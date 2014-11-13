@@ -16,6 +16,9 @@ EventEmitter = require('events').EventEmitter
     console.log data
 
   client.on 'remote', (remote) ->
+    remote.call 'getString', (resp) ->
+      console.log resp
+
     em = new EventEmitter
     em.on 'data', (n) ->
       console.log 'data: ' + n
