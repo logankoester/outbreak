@@ -2,7 +2,6 @@
 
 path = require 'path'
 outbreak = require path.join(__dirname, '..')
-EventEmitter = require('events').EventEmitter
 
 @client = new outbreak.Client
   name: 'simple'
@@ -10,7 +9,7 @@ EventEmitter = require('events').EventEmitter
   args: []
   cwd: __dirname
 
-@client.connect (err, client) =>
+@client.connect (err, client, events) =>
 
   client.on 'data', (data) ->
     console.log data
@@ -19,9 +18,5 @@ EventEmitter = require('events').EventEmitter
     remote.call 'getString', (resp) ->
       console.log resp
 
-    em = new EventEmitter
-    em.on 'data', (n) ->
-      console.log 'data: ' + n
-
-    emit = em.emit.bind em
-    remote.subscribe emit
+  events.on 'data', (n) ->
+    console.log 'data: ' + n

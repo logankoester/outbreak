@@ -6,6 +6,8 @@ server = new outbreak.Server
   name: 'simple'
   remoteMethods:
     getString: (cb) -> cb 'OUTBREAK'
+    triggerEvent: (event, data) ->
+      server.publish event, data
 
 setInterval ->
   n = Math.floor(Math.random() * 100)

@@ -6,6 +6,7 @@ retry = require 'retry'
 fs = require 'fs'
 join = require('path').join
 Shared = require join(__dirname, 'shared')
+EventEmitter = require('events').EventEmitter
 
 module.exports = class Client
   @include Shared
@@ -20,12 +21,12 @@ module.exports = class Client
     if @isRunning()
       operation = retry.operation retries: retries
       operation.attempt (currentAttempt) =>
-        @unsafeConnect (err, client) ->
+        @unsafeConnect (err, client, events) ->
           return if operation.retry(err)
           if err
             cb operation.mainError() if cb?
           else
-            cb null, client if cb?
+            cb null, client, events if cb?
     else
       @cleanPidfile()
       @cleanSocket()
@@ -53,7 +54,8 @@ module.exports = class Client
   unsafeConnect: (cb) ->
     if fs.existsSync(@getSocket())
       client = dnode.connect @getSocket()
-      cb(null, client)
+      events = @subscribe client
+      cb(null, client, events)
     else
       cb new Error 'Socket not ready'
 
@@ -71,3 +73,9 @@ module.exports = class Client
       parseInt fs.readFileSync(@getPidfile()).toString()
     else
       null
+
+  subscribe: (client) ->
+    events = new EventEmitter
+    client.on 'remote', (remote) ->
+      remote.subscribe events.emit.bind(events)
+    events
