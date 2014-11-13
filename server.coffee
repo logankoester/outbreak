@@ -36,8 +36,8 @@ module.exports = class Server
     subs = {}
     self = @
     @rpc = dnode (client, conn) ->
-      @call = (method, args) ->
-        self.remoteMethods[method](args)
+      @call = (method, args...) ->
+        self.remoteMethods[method](args...)
       @subscribe = (emit) ->
         Server.subscriptions[conn.id] = emit
         conn.on 'end', => delete Server.subscriptions[conn.id]
