@@ -2,6 +2,13 @@
 
 > Service process management with dnode rpc 
 
+[![Strider Build Status](http://ci.ldk.io/logankoester/outbreak/badge)](https://ci.ldk.io/logankoester/outbreak/)
+[![Dependency Status](https://david-dm.org/logankoester/outbreak.png)](https://david-dm.org/logankoester/outbreak)
+[![devDependency Status](https://david-dm.org/logankoester/outbreak/dev-status.png)](https://david-dm.org/logankoester/outbreak#info=devDependencies)
+[![Gittip](http://img.shields.io/gittip/logankoester.png)](https://www.gittip.com/logankoester/)
+
+[![NPM](https://nodei.co/npm/outbreak.png?downloads=true)](https://nodei.co/npm/outbreak/)
+
 ## Overview
 
 The **outbreak** module makes it easy to break a monolithic program out to one or more spawned processes, and then either continue communicating with them actively or simply exit and allow control to be picked up again the next time your program runs (or even by another program).
