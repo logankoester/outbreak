@@ -1,6 +1,6 @@
 {
   "name": "outbreak",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Service process management with dnode rpc",
   "repository": {
     "type": "git",
