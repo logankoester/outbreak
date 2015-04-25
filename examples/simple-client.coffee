@@ -7,7 +7,7 @@ outbreak = require path.join(__dirname, '..')
   name: 'simple'
   command: path.resolve(__dirname, 'simple.coffee')
   args: []
-  cwd: __dirname
+  cwd: process.cwd()
 
 @client.connect (err, client, events) =>
 

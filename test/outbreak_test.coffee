@@ -11,7 +11,7 @@ describe 'A connected client named "simple"', ->
       name: 'simple'
       command: SIMPLE_COMMAND
       args: []
-      cwd: __dirname
+      cwd: process.cwd()
 
     @client.connect (err, client, events) =>
       @events = events
@@ -52,7 +52,7 @@ describe 'A connected client named "simple"', ->
         name: 'simple'
         command: SIMPLE_COMMAND
         args: []
-        cwd: __dirname
+        cwd: process.cwd()
 
       @client2.connect (err, client, events) =>
         client.end()

@@ -1,6 +1,7 @@
 #!/usr/bin/env coffee
 
-outbreak = require require('path').join(__dirname, '..')
+path = require 'path'
+outbreak = require path.join(__dirname, '..')
 
 server = new outbreak.Server
   name: 'simple'
