@@ -37,5 +37,5 @@ server.connect()
 
 ## License
 
-Copyright (c) 2014 Logan Koester
+Copyright (c) 2014-2015 Logan Koester
 Licensed under the MIT license.
